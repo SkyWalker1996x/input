@@ -1,10 +1,6 @@
 import React from "react";
 
-const Input = () => {
-
-    const onInputChange = (e) => {
-        console.log(e.target.value)
-    };
+const Input = ({onInputChange}) => {
 
     return (
         <input type="text" onChange={onInputChange}/>
