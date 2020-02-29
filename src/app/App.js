@@ -1,5 +1,5 @@
-import React, {Component, Fragment} from 'react';
-import Input from "../input";
+import React, {Component} from 'react';
+import InputComponent from "../input-component";
 import Condition from "../condition";
 import ValidationComponent from "../validation-component";
 import CharComponent from "../char-component";
@@ -7,11 +7,29 @@ import './App.css'
 
 class App extends Component{
 
+    state = {
+      inputValue: ''
+    };
+
+    onInputChange = (e) => {
+        let value = e.target.value;
+
+        this.setState(({inputValue}) => {
+            return {
+                inputValue: value
+            }
+        });
+    };
+
     render() {
+        const {inputValue} = this.state;
+
         return (
             <div className="wrapper">
                 <Condition/>
-                <Input/>
+                <InputComponent
+                    onInputChange={this.onInputChange}
+                    inputValue={inputValue}/>
                 <ValidationComponent/>
                 <CharComponent/>
             </div>
