@@ -7,8 +7,6 @@ const ValidationComponent = ({inputLength}) => {
 
   const label = inputLength > 5 ? longText : shortText;
 
-  console.log(label);
-
   return (
       <p>{label}</p>
   )

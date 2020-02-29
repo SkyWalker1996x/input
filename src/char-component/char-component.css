@@ -1,3 +1,7 @@
+.char-wrapper {
+    display: flex;
+}
+
 .char {
     display: inline-block;
     padding: 16px;

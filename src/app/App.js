@@ -7,8 +7,17 @@ import './App.css'
 
 class App extends Component {
 
+    maxId = 1000;
+
     state = {
-        inputValue: ''
+        chars: []
+    };
+
+    createChar = (value) => {
+
+        return [...value.split('').map((item) => {
+            return {id: this.maxId++, label: item}
+        })];
     };
 
     onInputChange = (e) => {
@@ -16,14 +25,36 @@ class App extends Component {
 
         this.setState(({inputValue}) => {
             return {
-                inputValue: value
+                chars: this.createChar(value)
             }
         });
     };
 
+    onDeleteChar = (arr, id) => {
+        const idx = arr.findIndex((item) => item.id === id);
+
+        const newArr = [
+            ...arr.slice(0, idx),
+            ...arr.slice(idx + 1)
+        ];
+
+        this.setState(({chars}) => {
+            return {
+                chars: newArr
+            }
+        })
+
+    };
+
     render() {
-        const {inputValue} = this.state;
+        const {chars} = this.state;
+        const inputValue = [...chars.map((i) => {
+            return i.label
+        })].join('');
         const inputLength = inputValue.length;
+
+        console.log('chars: ', chars);
+        console.log('inputV: ', inputValue);
 
         return (
             <div className="wrapper">
@@ -33,7 +64,9 @@ class App extends Component {
                     inputValue={inputValue}/>
                 <ValidationComponent
                     inputLength={inputLength}/>
-                <CharComponent/>
+                <CharComponent
+                    chars={chars}
+                    onDeleteChar={this.onDeleteChar}/>
             </div>
         );
     }
