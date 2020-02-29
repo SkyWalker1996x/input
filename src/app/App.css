@@ -1,4 +1,6 @@
 .wrapper {
     max-width: 777px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }

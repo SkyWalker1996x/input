@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e67d0ac-7652-4bf6-9bf3-e3be7fba15fe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/input-component/input-component.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/input/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/input-component/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/input/input.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/input-component/input-component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/input/input.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/input-component/input-component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/input-component/input-component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/validation-component/validation-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/validation-component/validation-component.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +56,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582977070430</updated>
-      <workItem from="1582977076764" duration="4189000" />
+      <workItem from="1582977076764" duration="5130000" />
     </task>
     <servers />
   </component>

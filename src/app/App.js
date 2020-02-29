@@ -5,10 +5,10 @@ import ValidationComponent from "../validation-component";
 import CharComponent from "../char-component";
 import './App.css'
 
-class App extends Component{
+class App extends Component {
 
     state = {
-      inputValue: ''
+        inputValue: ''
     };
 
     onInputChange = (e) => {
@@ -23,6 +23,7 @@ class App extends Component{
 
     render() {
         const {inputValue} = this.state;
+        const inputLength = inputValue.length;
 
         return (
             <div className="wrapper">
@@ -30,7 +31,8 @@ class App extends Component{
                 <InputComponent
                     onInputChange={this.onInputChange}
                     inputValue={inputValue}/>
-                <ValidationComponent/>
+                <ValidationComponent
+                    inputLength={inputLength}/>
                 <CharComponent/>
             </div>
         );
