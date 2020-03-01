@@ -1,56 +1,35 @@
 import React, {Component} from 'react';
-import InputComponent from "../input-component";
 import Condition from "../condition";
-import ValidationComponent from "../validation-component";
-import CharComponent from "../char-component";
-import './App.css'
+import Validation from "../Validation";
+import Chars from "../Chars";
+import './App.styled.css'
 
 class App extends Component {
-
-    maxId = 1000;
-
     state = {
         chars: []
     };
 
-    createChar = (value) => {
-
-        return [...value.split('').map((item) => {
-            return {id: this.maxId++, label: item}
-        })];
-    };
+    createChar = (value) =>
+        value.split('').map((label, id) =>
+            ({ id, label })
+        );
 
     onInputChange = (e) => {
         let value = e.target.value;
 
-        this.setState(({inputValue}) => {
-            return {
-                chars: this.createChar(value)
-            }
+        this.setState({chars: this.createChar(value)});
+    };
+
+    onDeleteChar = (removeId) =>
+        this.setState({
+            chars: this.state.chars.filter(
+                ({label, id}) => id !== removeId
+            )
         });
-    };
-
-    onDeleteChar = (arr, id) => {
-        const idx = arr.findIndex((item) => item.id === id);
-
-        const newArr = [
-            ...arr.slice(0, idx),
-            ...arr.slice(idx + 1)
-        ];
-
-        this.setState(({chars}) => {
-            return {
-                chars: newArr
-            }
-        })
-
-    };
 
     render() {
         const {chars} = this.state;
-        const inputValue = [...chars.map((i) => {
-            return i.label
-        })].join('');
+        const inputValue = chars.map(({label}) => label).join('');
         const inputLength = inputValue.length;
 
         console.log('chars: ', chars);
@@ -59,14 +38,18 @@ class App extends Component {
         return (
             <div className="wrapper">
                 <Condition/>
-                <InputComponent
-                    onInputChange={this.onInputChange}
-                    inputValue={inputValue}/>
-                <ValidationComponent
-                    inputLength={inputLength}/>
-                <CharComponent
+                <input
+                    type="text"
+                    onChange={this.onInputChange}
+                    value={inputValue}
+                />
+                <Validation
+                    inputLength={inputLength}
+                />
+                <Chars
                     chars={chars}
-                    onDeleteChar={this.onDeleteChar}/>
+                    onDeleteChar={this.onDeleteChar}
+                />
             </div>
         );
     }
