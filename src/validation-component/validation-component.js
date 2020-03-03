@@ -1,8 +1,14 @@
 import React from "react";
 
-const ValidationComponent = () => {
+const ValidationComponent = ({charsLength}) => {
+
+    const short = 'Text too short';
+    const long = 'Text long enough';
+
+    const label = charsLength < 5 ? short : long;
+
     return (
-      <p>validation component</p>
+      <p>{label}</p>
   )
 };
 

@@ -1,15 +1,22 @@
 import React from "react";
 import './char-component.css'
 
-const CharComponent = () => {
+const CharComponent = ({chars, onDeleteChar}) => {
+
+    const elements = chars.map(({id, char}) => {
+        return (
+            <div
+                className="char"
+                key={id}
+                onClick={() => onDeleteChar(chars, id)}>
+                {char}
+            </div>
+        )
+    });
 
     return (
         <div className='char-wrapper'>
-
-            <div className="char">
-                char
-            </div>
-
+            {elements}
         </div>
     )
 };

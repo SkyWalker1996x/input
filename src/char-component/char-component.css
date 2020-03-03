@@ -1,8 +1,11 @@
 .char-wrapper {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .char {
+    min-width: 10px;
+    min-height: 10px;
     display: inline-block;
     padding: 16px;
     text-align: center;
