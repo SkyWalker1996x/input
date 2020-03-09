@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import './char-component.css'
 
 const CharComponent = ({chars, onDeleteChar}) => {
@@ -18,6 +19,18 @@ const CharComponent = ({chars, onDeleteChar}) => {
         <div className='char-wrapper'>
             {elements}
         </div>
+    )
+};
+
+
+CharComponent.propTypes = {
+    onDeleteChar: PropTypes.func.isRequired,
+    chars: PropTypes.arrayOf(
+        PropTypes.shape({
+                id: PropTypes.number.isRequired,
+                char: PropTypes.string.isRequired
+            }
+        )
     )
 };
 

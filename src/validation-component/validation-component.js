@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from 'prop-types';
+
 
 const ValidationComponent = ({charsLength}) => {
 
@@ -10,6 +12,10 @@ const ValidationComponent = ({charsLength}) => {
     return (
       <p>{label}</p>
   )
+};
+
+ValidationComponent.propTypes = {
+    charsLength: PropTypes.number.isRequired,
 };
 
 export default ValidationComponent;
